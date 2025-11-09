@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lunisolar Wiki - Commands</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
+    <script src="search.js" defer></script>
+</head>
+<body>
+
+   <header class="wiki-header">
+    <div class="container header-content">
+        <div class="logo">Lunisolar Wiki</div>
+        
+        <div class="search-wrapper">
+            <div class="search-bar">
+                <input type="text" placeholder="Search the wiki..." id="search-input" autocomplete="off">
+                <button id="search-button"><i class="fas fa-search"></i></button>
+            </div>
+            <div class="search-suggestions" id="search-suggestions"></div>
+        </div>
+
+    </div>
+</header>
+
+    <div class="container wiki-layout">
+        
+        <aside class="sidebar">
+            <nav class="sidebar-nav">
+                <h3>Navigation</h3>
+                <ul>
+                    <li><a href="index.html"><i class="fas fa-play-circle"></i> Getting Started</a></li>
+                    <li><a href="vote.html"><i class="fas fa-check-to-slot"></i> Vote</a></li>
+                    <li><a href="rules.html"><i class="fas fa-gavel"></i> Server Rules</a></li>
+                    <li><a href="commands.html" class="active"><i class="fas fa-terminal"></i> Commands</a></li>
+                    <li><a href="ranks.html"><i class="fas fa-star"></i> Ranks & Perks</a></li>
+                    <li><a href="economy.html"><i class="fas fa-coins"></i> Economy & Shop</a></li>
+                    <li><a href="phases.html"><i class="fas fa-cube"></i> Oneblock Phases</a></li>
+                </ul>
+            </nav>
+        </aside>
+
+        <main class="main-content">
+            <article class="wiki-article">
+
+                <h1><i class="fas fa-terminal"></i> Server Commands</h1>
+                <p class="article-intro">A list of essential commands you'll need to navigate and thrive on Lunisolar.</p>
+
+                <div class="toc-box">
+                    <h4>On this page</h4>
+                    <ul>
+                        <li><a href="#island">Island Commands</a></li>
+                        <li><a href="#economy">Economy Commands</a></li>
+                        <li><a href="#teleport">Teleport & Warps</a></li>
+                        <li><a href="#minigames">Minigame & Event</a></li>
+                        <li><a href="#other">Other Commands</a></li>
+                    </ul>
+                </div>
+
+                <section id="island">
+                    <h2><i class="fas fa-island"></i> Island Commands</h2>
+                    <p>These commands control your OneBlock island.</p>
+                    <table class="command-table">
+                        <thead>
+                            <tr>
+                                <th>Command</th>
+                                <th>Description</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><code>/ob create</code></td>
+                                <td>Creates your new OneBlock island.</td>
+                            </tr>
+                            <tr>
+                                <td><code>/ob go</code></td>
+                                <td>Teleports you to your island's home position.</td>
+                            </tr>
+                            <tr>
+                                <td><code>/ob trust {player}</code></td>
+                                <td>Allows a player to build and break on your island. (Be careful!)</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </section>
+
+                <section id="economy">
+                    <h2><i class="fas fa-coins"></i> Economy Commands</h2>
+                    <p>Commands for making money, selling, and trading.</p>
+                    <table class="command-table">
+                        <thead>
+                            <tr>
+                                <th>Command</th>
+                                <th>Description</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><code>/sell</code></td>
+                                <td>Sells items from your inventory (often used with <code>/sell all</code>).</td>
+                            </tr>
+                            <tr>
+                                <td><code>/ah</code></td>
+                                <td>Opens the Auction House to buy items from other players.</td>
+                            </tr>
+                            <tr>
+                                <td><code>/ah sell</code></td>
+                                <td>Lists the item currently in your hand for sale.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </section>
+
+                <section id="teleport">
+                    <h2><i class="fas fa-map-marker-alt"></i> Teleport & Warps</h2>
+                    <p>How to get around the server and to other islands.</p>
+                    <table class="command-table">
+                        <thead>
+                            <tr>
+                                <th>Command</th>
+                                <th>Description</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><code>/warp crates</code></td>
+                                <td>Teleports you to the server's crate area.</td>
+                            </tr>
+                            <tr>
+                                <td><code>/warp pvp</code></td>
+                                <td>Teleports you to the PvP arena and KoTH.</td>
+                            </tr>
+                            <tr>
+                                <td><code>/pwarp create {name}</code></td>
+                                <td>Creates a public warp on your island for other players.</td>
+                            </tr>
+                            <tr>
+                                <td><code>/pwarp {name}</code></td>
+                                <td>Teleports you to another player's public warp.</td>
+                            </tr>
+                            <tr>
+                                <td><code>/pwarp manage {name}</code></td>
+                                <td>Manages the settings for your player warp.</td>
+                            </tr>
+                            <tr>
+                                <td><code>/pwarp remove {name}</code></td>
+                                <td>Deletes one of your player warps.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </section>
+                
+                <section id="minigames">
+                    <h2><i class="fas fa-gamepad"></i> Minigame & Event Commands</h2>
+                    <p>Commands for server games and events.</p>
+                    <table class="command-table">
+                        <thead>
+                            <tr>
+                                <th>Command</th>
+                                <th>Description</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><code>/pg join</code></td>
+                                <td>Opens the menu to join Party Games (BlockParty, Spleef, etc.).</td>
+                            </tr>
+                            <tr>
+                                <td><code>/duel {player}</code></td>
+                                <td>Challenges another player to a 1v1 duel.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </section>
+
+                <section id="other">
+                    <h2><i class="fas fa-info-circle"></i> Other Commands</h2>
+                    <p>Useful commands for help and voting.</p>
+                    <table class="command-table">
+                        <thead>
+                            <tr>
+                                <th>Command</th>
+                                <th>Description</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><code>/vote</code></td>
+                                <td>Opens the in-game list of vote links to get keys.</td>
+                            </tr>
+                            <tr>
+                                <td><code>/helpop {message}</code></td>
+                                <td>Sends a private message to all online staff members.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </section>
+
+            </article>
+        </main>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Lunisolar. All Rights Reserved. Not affiliated with Mojang AB.</p>
+    </footer>
+
+</body>
+</html>

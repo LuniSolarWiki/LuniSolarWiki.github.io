@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lunisolar Wiki - Economy</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
+    <script src="search.js" defer></script>
+</head>
+<body>
+
+  <header class="wiki-header">
+    <div class="container header-content">
+        <div class="logo">Lunisolar Wiki</div>
+        
+        <div class="search-wrapper">
+            <div class="search-bar">
+                <input type="text" placeholder="Search the wiki..." id="search-input" autocomplete="off">
+                <button id="search-button"><i class="fas fa-search"></i></button>
+            </div>
+            <div class="search-suggestions" id="search-suggestions"></div>
+        </div>
+
+    </div>
+</header>
+    <div class="container wiki-layout">
+        
+        <aside class="sidebar">
+            <nav class="sidebar-nav">
+                <h3>Navigation</h3>
+                <ul>
+                    <li><a href="index.html"><i class="fas fa-play-circle"></i> Getting Started</a></li>
+                    <li><a href="vote.html"><i class="fas fa-check-to-slot"></i> Vote</a></li>
+                    <li><a href="rules.html"><i class="fas fa-gavel"></i> Server Rules</a></li>
+                    <li><a href="commands.html"><i class="fas fa-terminal"></i> Commands</a></li>
+                    <li><a href="ranks.html"><i class="fas fa-star"></i> Ranks & Perks</a></li>
+                    <li><a href="economy.html" class="active"><i class="fas fa-coins"></i> Economy & Shop</a></li>
+                    <li><a href="phases.html"><i class="fas fa-cube"></i> Oneblock Phases</a></li>
+                </ul>
+            </nav>
+        </aside>
+
+        <main class="main-content">
+            <article class="wiki-article">
+
+                <h1><i class="fas fa-coins"></i> Economy & Shop</h1>
+                <p class="article-intro">This guide covers all the ways to make money, sell items, and trade with other players on Lunisolar.</p>
+
+                <div class="toc-box">
+                    <h4>On this page</h4>
+                    <ul>
+                        <li><a href="#server-sell">Server Selling (/sell)</a></li>
+                        <li><a href="#chest-shops">ChestShops (Player Shops)</a></li>
+                        <li><a href="#auction-house">Auction House (/ah)</a></li>
+                    </ul>
+                </div>
+
+                <section id="server-sell">
+                    <h2><i class="fas fa-dollar-sign"></i> Server Selling (/sell)</h2>
+                    <p>This is the most direct way to make money. As you mine your OneBlock, you will get a lot of basic materials. You can sell these directly to the server for a fixed price.</p>
+                    <p>Simply use <code>/sell</code> in-game (many players use <code>/sell all</code>) to sell all sellable items from your inventory.</p>
+                </section>
+
+                <section id="chest-shops">
+                    <h2><i class="fas fa-store"></i> ChestShops (Player Shops)</h2>
+                    <p>ChestShops are the best way to create your own shop on your island and sell items to other players, even when you are offline. You can set these up at your <code>/pwarp</code> for visitors.</p>
+                    
+                    <h3>How to Create a Shop</h3>
+                    <p>Follow these exact steps to create a shop:</p>
+                    <ol>
+                        <li>Place a <strong>Chest</strong> on your island.</li>
+                        <li>Hold the item you want to sell in your hand.</li>
+                        <li><strong>Left-click</strong> the chest with the item.</li>
+                        <li>Type the price you want to sell <strong>one</strong> of that item for in chat.</li>
+                        <li>Stock the chest with the items you are selling. Your shop is now open!</li>
+                    </ol>
+
+                    <h3>How to Edit a Shop</h3>
+                    <p>If you need to change the price or other settings, simply <strong>right-click</strong> the chest to open the shop editor.</p>
+                </section>
+
+                <section id="auction-house">
+                    <h2><i class="fas fa-gavel"></i> Auction House (/ah)</h2>
+                    <p>The Auction House (AH) is the server-wide, temporary marketplace. This is the best place to buy and sell rare items, tools, crate keys, and other high-value goods.</p>
+
+                    <h3>How to Buy</h3>
+                    <p>Type <code>/ah</code> to open the Auction House. You can browse all items for sale or search for something specific.</p>
+                    
+                    <h3>How to Sell</h3>
+                    <p>To sell an item, hold it in your hand and type <code>/ah sell</code>. A menu will appear asking you to set the price and quantity. Be careful, as items listed on the AH usually have a listing fee and expire after a certain time.</p>
+                </section>
+
+
+            </article>
+        </main>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Lunisolar. All Rights Reserved. Not affiliated with Mojang AB.</p>
+    </footer>
+
+</body>
+</html>

@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lunisolar Wiki - Getting Started</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
+    <script src="search.js" defer></script>
+</head>
+<body>
+
+    <header class="wiki-header">
+    <div class="container header-content">
+        <div class="logo">Lunisolar Wiki</div>
+        
+        <div class="search-wrapper">
+            <div class="search-bar">
+                <input type="text" placeholder="Search the wiki..." id="search-input" autocomplete="off">
+                <button id="search-button"><i class="fas fa-search"></i></button>
+            </div>
+            <div class="search-suggestions" id="search-suggestions"></div>
+        </div>
+
+    </div>
+</header>
+
+    <div class="container wiki-layout">
+        
+        <aside class="sidebar">
+            <nav class="sidebar-nav">
+                <h3>Navigation</h3>
+                <ul>
+                    <li><a href="index.html" class="active"><i class="fas fa-play-circle"></i> Getting Started</a></li>
+                    <li><a href="vote.html"><i class="fas fa-check-to-slot"></i> Vote</a></li>
+                    <li><a href="rules.html"><i class="fas fa-gavel"></i> Server Rules</a></li>
+                    <li><a href="commands.html"><i class="fas fa-terminal"></i> Commands</a></li>
+                    <li><a href="ranks.html"><i class="fas fa-star"></i> Ranks & Perks</a></li>
+                    <li><a href="economy.html"><i class="fas fa-coins"></i> Economy & Shop</a></li>
+                    <li><a href="phases.html"><i class="fas fa-cube"></i> Oneblock Phases</a></li>
+                </ul>
+            </nav>
+        </aside>
+
+        <main class="main-content">
+            <article class="wiki-article">
+
+                <h1>👋 Getting Started</h1>
+                <p class="article-intro">Hello players! This is your complete guide to starting your adventure on Lunisolar.</p>
+
+                <div class="toc-box">
+                    <h4>On this page</h4>
+                    <ul>
+                        <li><a href="#starting-island">Starting Your Island</a></li>
+                        <li><a href="#making-money">Making Money</a></li>
+                        <li><a href="#crate-keys">Crate Keys</a></li>
+                        <li><a href="#player-warps">Player Warps</a></li>
+                        <li><a href="#chest-shops">ChestShops</a></li>
+                        <li><a href="#auction-house">Auction House</a></li>
+                        <li><a href="#koth">KoTH</a></li>
+                        <li><a href="#envoys">Envoys</a></li>
+                        <li><a href="#party-games">Party Games</a></li>
+                        <li><a href="#duels">Duels</a></li>
+                    </ul>
+                </div>
+
+                <section id="starting-island">
+                    <h2>Starting Your Island</h2>
+                    <p>To get started, you will want to do <code>/ob create</code> and then you will be sent to your island. If it doesn't send you, then do <code>/ob go</code>.</p>
+                </section>
+
+                <section id="making-money">
+                    <h2>💰 Making Money</h2>
+                    <p>Next, you're going to want to know how to make money. First, you can mine your oneblock and <code>/sell</code> the items you get from there. You can also ask other higher players for money, but it won't always work out.</p>
+                </section>
+
+                <section id="crate-keys">
+                    <h2>🔑 Crate Keys</h2>
+                    <p>You can get all crate keys for free by voting and playing for the server! Do <code>/vote</code> and vote for the server with the 5 different links (or visit our <a href="vote.html">Vote Page</a>). Once you are done, you should get 5 vote keys. You can go to <code>/warp crates</code> and use your vote keys.</p>
+                    <p>You'll be able to get:</p>
+                    <ul>
+                        <li>Common, Epic, and Legendary</li>
+                        <li>Common x2, Epic x2, and Legendary x2</li>
+                    </ul>
+                    <p>The only key you can't get from votes is KoTH keys.</p>
+                </section>
+
+                <section id="player-warps">
+                    <h2>🗺️ Player Warps (pwarp)</h2>
+                    <p>With these player warps, you can set a public arena which players can warp to. You can set up shops and many more by doing this.</p>
+                    <ul>
+                        <li><strong>Create a warp:</strong> <code>/pwarp create {name}</code></li>
+                        <li><strong>Go to a warp:</strong> <code>/pwarp {name}</code></li>
+                        <li><strong>Manage a warp:</strong> <code>/pwarp manage {name}</code></li>
+                        <li><strong>Delete a warp:</strong> <code>/pwarp remove {name}</code></li>
+                    </ul>
+                </section>
+
+                <section id="chest-shops">
+                    <h2>🏪 ChestShops / PlayerShops</h2>
+                    <p>ChestShops allow you to sell items while offline and have a shop. To make one, you need to <strong>left-click a chest</strong> with the item you want to sell and type in chat the amount for it to go for. Then, put the item of choice in the chest.</p>
+                    <p>If you need to edit the shop later on, you need to <strong>right-click it</strong>.</p>
+                </section>
+
+                <section id="auction-house">
+                    <h2>⚖️ Auction House (AH)</h2>
+                    <p>To use the auction house to buy items, do <code>/ah</code> and pick the item you want to buy. If you want to sell an item, do <code>/ah sell</code>.</p>
+                </section>
+
+                <section id="koth">
+                    <h2>👑 KoTH (King of the Hill)</h2>
+                    <p>In <code>/warp pvp</code>, there will be a KoTH every 3 hours. You have to go to the middle and sit there for 3 mins. Once you have sat there without leaving it, you will get a KoTH key which gives you the chance to get OP armor and a seasonal LootBox.</p>
+                </section>
+                
+                <section id="envoys">
+                    <h2>🎁 Envoys</h2>
+                    <p>Envoys happen every hour. You can get money, keys, armor, and tools. There are 3 tiers of envoys:</p>
+                     <ul>
+                        <li><strong>Common:</strong> Gives common keys and money.</li>
+                        <li><strong>Rare:</strong> Gives epic keys and money.</li>
+                        <li><strong>Legendary:</strong> Gives money, armor, and tools.</li>
+                    </ul>
+                </section>
+                
+                <section id="party-games">
+                    <h2>🎉 Party Games</h2>
+                    <p>To play fun games while bored, do <code>/pg join</code> and you can select 1 of 3 games to play: BlockParty, Spleef, and Survival Games.</p>
+                </section>
+                
+                <section id="duels">
+                    <h2>⚔️ Duels</h2>
+                    <p>To duel someone, you can duel with your armor or a selected kit. Do <code>/duel {player}</code> to duel someone.</p>
+                </section>
+
+            </article>
+        </main>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Lunisolar. All Rights Reserved. Not affiliated with Mojang AB.</p>
+    </footer>
+
+</body>
+</html>

@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lunisolar Wiki - Ranks</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
+    <script src="search.js" defer></script>
+</head>
+<body>
+
+    <header class="wiki-header">
+    <div class="container header-content">
+        <div class="logo">Lunisolar Wiki</div>
+        
+        <div class="search-wrapper">
+            <div class="search-bar">
+                <input type="text" placeholder="Search the wiki..." id="search-input" autocomplete="off">
+                <button id="search-button"><i class="fas fa-search"></i></button>
+            </div>
+            <div class="search-suggestions" id="search-suggestions"></div>
+        </div>
+
+    </div>
+</header>
+
+    <div class="container wiki-layout">
+        
+        <aside class="sidebar">
+            <nav class="sidebar-nav">
+                <h3>Navigation</h3>
+                <ul>
+                    <li><a href="index.html"><i class="fas fa-play-circle"></i> Getting Started</a></li>
+                    <li><a href="vote.html"><i class="fas fa-check-to-slot"></i> Vote</a></li>
+                    <li><a href="rules.html"><i class="fas fa-gavel"></i> Server Rules</a></li>
+                    <li><a href="commands.html"><i class="fas fa-terminal"></i> Commands</a></li>
+                    <li><a href="ranks.html" class="active"><i class="fas fa-star"></i> Ranks & Perks</a></li>
+                    <li><a href="economy.html"><i class="fas fa-coins"></i> Economy & Shop</a></li>
+                    <li><a href="phases.html"><i class="fas fa-cube"></i> Oneblock Phases</a></li>
+                </ul>
+            </nav>
+        </aside>
+
+        <main class="main-content">
+            <article class="wiki-article">
+
+                <h1><i class="fas fa-star"></i> Ranks & Perks</h1>
+                <p class="article-intro">Here are all the buyable ranks available on Lunisolar. Each rank includes all the perks from the ranks below it.</p>
+                <p>All ranks are available for purchase on our <strong><a href="#" target="_blank">Server Store</a></strong>.</p> <div class="toc-box">
+                    <h4>On this page</h4>
+                    <ul>
+                        <li><a href="#buyable-ranks">Buyable Ranks</a></li>
+                        <li><a href="#nebula">Nebula</a></li>
+                        <li><a href="#eclipse">Eclipse</a></li>
+                        <li><a href="#solar">Solar</a></li>
+                        <li><a href="#lunar">Lunar</a></li>
+                        <li><a href="#lunisolar">Lunisolar</a></li>
+                        <li><a href="#seasonal">Seasonal Ranks</a></li>
+                    </ul>
+                </div>
+
+                <section id="buyable-ranks">
+                    <h2><i class="fas fa-shopping-cart"></i> Buyable Ranks</h2>
+                    <p>These ranks are a one-time purchase and give you permanent perks.</p>
+                    
+                    <h3 id="nebula"><i class="fas fa-cloud rank-nebula"></i> Nebula</h3>
+                    <ul>
+                        <li><code>[Nebula Kit]</code></li>
+                        <li><code>2</code> Player Vaults</li>
+                        <li><code>/anvil</code> - Opens a virtual anvil.</li>
+                        <li><code>/sit</code> - Sit down anywhere.</li>
+                        <li><code>/lay</code> - Lay down anywhere.</li>
+                    </ul>
+
+                    <h3 id="eclipse"><i class="fas fa-circle-notch rank-eclipse"></i> Eclipse</h3>
+                    <blockquote class="perk-inheritance">
+                        Includes all perks from <strong>Nebula</strong>, plus:
+                    </blockquote>
+                    <ul>
+                        <li><code>[Eclipse Kit]</code></li>
+                        <li>Upgraded to <code>3</code> Player Vaults</li>
+                        <li><code>/ec</code> - Opens your Ender Chest.</li>
+                        <li><code>/seen {player}</code> - See when a player was last online.</li>
+                        <li><code>/bellyflop</code> - Perform a bellyflop.</li>
+                    </ul>
+
+                    <h3 id="solar"><i class="fas fa-sun rank-solar"></i> Solar</h3>
+                    <blockquote class="perk-inheritance">
+                        Includes all perks from <strong>Eclipse</strong>, plus:
+                    </blockquote>
+                    <ul>
+                        <li><code>[Solar Kit]</code></li>
+                        <li>Upgraded to <code>4</code> Player Vaults</li>
+                        <li><code>/fly</code> - Enable flying on your island.</li>
+                        <li><code>/craft</code> - Opens a virtual crafting table.</li>
+                        <li><code>/condense</code> - Condenses items into blocks.</li>
+                        <li><code>/nick</code> - Set a custom nickname.</li>
+                    </ul>
+
+                    <h3 id="lunar"><i class="fas fa-moon rank-lunar"></i> Lunar</h3>
+                    <blockquote class="perk-inheritance">
+                        Includes all perks from <strong>Solar</strong>, plus:
+                    </blockquote>
+                    <ul>
+                        <li><code>[Lunar Kit]</code></li>
+                        <li>Upgraded to <code>5</code> Player Vaults</li>
+                        <li><code>/feed</code> - Fills your hunger bar.</li>
+                        <li><code>/disposal</code> - Opens a virtual trash can.</li>
+                        <li><code>/rename</code> - Rename the item in your hand.</li>
+                        <li><code>/skull {player}</code> - Get a player's head.</li>
+                        <li><code>/keyall</code> - Give everyone online a vote key.</li>
+                    </ul>
+
+                    <h3 id="lunisolar"><i class="fas fa-meteor rank-lunisolar"></i> Lunisolar</h3>
+                    <blockquote class="perk-inheritance">
+                        The ultimate donor rank! Includes all perks from <strong>Lunar</strong>, plus:
+                    </blockquote>
+                    <ul>
+                        <li><code>/repair</code> - Repair the item in your hand.</li>
+                        <li><code>3x</code> Seasonal Lootboxes</li>
+                        <li><strong>Custom tag</strong> in chat.</li>
+                    </ul>
+                </section>
+
+                <section id="seasonal">
+                    <h2><i class="fas fa-gift"></i> Seasonal / Monthly Ranks</h2>
+                    <p>These special ranks are found in <strong>Seasonal/Monthly Lootboxes</strong>. They are mainly for show and offer access to powerful perks.</p>
+                    <ul>
+                        <li>Includes permissions from <strong>Lunar</strong> rank and below.</li>
+                        <li>Comes as a "withdrawable" item, so you can trade or keep it.</li>
+                        <li>Grants a unique, temporary prefix to show off.</li>
+                    </ul>
+                </section>
+
+            </article>
+        </main>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Lunisolar. All Rights Reserved. Not affiliated with Mojang AB.</p>
+    </footer>
+
+</body>
+</html>
