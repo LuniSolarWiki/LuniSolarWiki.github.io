@@ -1,11 +1,15 @@
 /* --- CSS Variables (Your Color Palette) --- */
 :root {
-    --color-bg: #0D1117; /* Deep, dark navy (almost black) */
-    --color-bg-light: #161B22; /* Lighter container background (for sidebar/article) */
-    --color-primary: #30A5FF; /* Bright, electric blue for accents */
-    --color-secondary: #0A2540; /* A darker, supporting blue */
-    --color-text: #E6EDF3; /* Light gray (not pure white) */
-    --color-text-dim: #AEC5FF; /* Dimmer text for paragraphs */
+    /* New Palette:
+      - Midnight: Deep, dark blues/indigos
+      - Create Mod: Brassy gold, dark grey-blue
+    */
+    --color-bg: #0a0f1a;          /* Deep Midnight blue */
+    --color-bg-light: #161B22;    /* Create Mod "Andesite" grey */
+    --color-primary: #E0B04F;     /* Create Mod "Brass" gold */
+    --color-secondary: #4A3C2B;   /* Dark supporting brown/brass */
+    --color-text: #E6EDF3;        /* Light gray */
+    --color-text-dim: #6E99D0;    /* Create Mod "Schematic" blue */
 
     --border-radius-main: 16px; /* Main "round" radius for containers */
     --border-radius-small: 10px; /* Smaller radius for inner elements */
@@ -24,8 +28,8 @@
 body {
     font-family: 'Poppins', sans-serif;
     background-color: var(--color-bg);
-    /* This creates the blend from black to dark blue */
-    background-image: linear-gradient(180deg, #0D1117 0%, #0A2540 100%);
+    /* This creates the blend from midnight to dark andesite */
+    background-image: linear-gradient(180deg, #0a0f1a 0%, #1A1F2A 100%);
     background-attachment: fixed;
     background-size: 100% 100vh;
     color: var(--color-text);
@@ -44,7 +48,7 @@ a {
     transition: color 0.3s ease;
 }
 a:hover {
-    color: #6ac0ff;
+    color: #F5D07A; /* Lighter gold */
 }
 
 h1, h2, h3, h4 {
@@ -140,7 +144,7 @@ code {
     font-size: 1rem;
     transition: background-color 0.3s ease;
 }
-.search-bar button:hover { background-color: #6ac0ff; }
+.search-bar button:hover { background-color: #F5D07A; } /* Lighter gold */
 
 /* --- Wiki Layout (Sidebar + Main) --- */
 .wiki-layout {
@@ -346,7 +350,7 @@ footer {
 }
 
 .command-table th {
-    background-color: var(--color-secondary); /* Dark blue header */
+    background-color: var(--color-secondary); /* Dark brass header */
     color: var(--color-text);
     font-size: 1.1rem;
 }
@@ -408,7 +412,7 @@ footer {
 .rank-eclipse { color: #F8B400; }   /* Gold/Orange */
 .rank-solar { color: #FFD700; }     /* Bright Yellow */
 .rank-lunar { color: #AEC5FF; }     /* Light Blue */
-.rank-lunisolar { color: var(--color-primary); } /* Main Bright Blue */
+.rank-lunisolar { color: var(--color-primary); } /* Main "Brass" gold */
 /* --- NEW STYLES FOR PHASES PAGE (LISTS) --- */
 
 .wiki-article ol {
