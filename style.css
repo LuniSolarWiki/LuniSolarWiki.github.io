@@ -568,3 +568,42 @@ footer {
         overflow-x: auto;
     }
 }
+/* --- New Search Suggestion Styles --- */
+
+/* This is the main box for each suggestion */
+.suggestion-item {
+    padding: 10px 15px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    border-bottom: 1px solid #333; /* Faint line between items */
+    line-height: 1.4;
+}
+
+/* Remove border from the last item */
+.suggestion-item:last-child {
+    border-bottom: none;
+}
+
+/* This is the page title (e.g., "Vote Page") */
+.suggestion-title {
+    font-weight: 600;
+    font-size: 1.05em;
+    color: #f0f0f0; /* Light text */
+}
+
+/* This is the new description text */
+.suggestion-desc {
+    font-size: 0.9em;
+    color: #aaa; /* Grayer, smaller text */
+    padding-left: 2px; /* Small indent */
+}
+
+/* This is the highlight for keyboard navigation */
+.suggestion-item.active {
+    background-color: #383838; /* Dark highlight */
+}
+
+/* Hover effect */
+.suggestion-item:hover {
+     background-color: #303030;
+}
