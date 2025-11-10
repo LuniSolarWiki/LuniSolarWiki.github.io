@@ -34,6 +34,7 @@ body {
     background-size: 100% 100vh;
     color: var(--color-text);
     line-height: 1.6;
+    overflow-wrap: break-word; /* Prevents long words from breaking layout */
 }
 
 .container {
@@ -481,4 +482,89 @@ footer {
 .suggestion-item.active {
     background-color: var(--color-primary);
     color: var(--color-bg);
+}
+
+
+/*
+=========================================
+--- RESPONSIVE (MOBILE) STYLES ---
+=========================================
+*/
+
+@media (max-width: 768px) {
+
+    /* --- General Layout --- */
+    .container {
+        padding: 0 15px; /* Less horizontal padding */
+    }
+
+    .wiki-layout {
+        /* This is the key: stack the columns */
+        grid-template-columns: 1fr; 
+        gap: 20px;
+        margin-top: 20px;
+    }
+
+    /* --- Header --- */
+    .wiki-header {
+        height: auto; /* Allow header to grow */
+        padding-top: 10px;
+        padding-bottom: 10px;
+        /* It will remain sticky, but will be taller */
+    }
+
+    .header-content {
+        flex-direction: column; /* Stack logo and search */
+        align-items: flex-start;
+        gap: 10px; /* Space between logo and search */
+    }
+
+    .search-wrapper {
+        width: 100%; /* Make search bar full-width */
+    }
+
+    .search-bar {
+        width: 100%;
+    }
+
+    .search-bar input {
+        width: auto; /* Remove fixed width */
+        flex-grow: 1;  /* Allow input to fill space */
+    }
+
+    /* --- Sidebar --- */
+    .sidebar {
+        position: static; /* Un-stick the sidebar */
+        top: auto;
+        /* It will now appear at the top of the grid */
+    }
+
+    /* --- Main Content --- */
+    .main-content {
+        padding: 20px 15px; /* Reduce padding for small screens */
+        min-height: auto; /* Remove fixed min-height */
+    }
+
+    /* --- Table of Contents --- */
+    .toc-box {
+        float: none; /* Disable float */
+        width: 100%; /* Make it full-width */
+        margin: 20px 0 20px 0; /* Adjust margins */
+    }
+
+    /* --- Typography --- */
+    /* Slightly smaller headings for small screens */
+    h1 { font-size: 1.8rem; }
+    h2 { font-size: 1.5rem; }
+    h3 { font-size: 1.25rem; }
+
+    /* --- Table Fix --- */
+    /* This makes your command table scroll 
+       horizontally if it's too wide,
+       instead of breaking the page layout. */
+    .command-table {
+        display: block;
+        width: 100%;
+        overflow-x: auto;
+    }
 }
