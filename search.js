@@ -3,82 +3,101 @@
 document.addEventListener('DOMContentLoaded', () => {
 
     // This is our "database" of all searchable pages.
-    // I've added a "description" field to each item.
+    // I've added a "headings" array to search for topics *on* each page.
     const searchData = [
         { 
             title: 'Getting Started', 
             page: 'index.html', 
-            description: 'The main guide for new players. Covers islands, money, crates, and more.',
+            description: 'The main guide. Covers islands, money, crates, pwarps, ah, koth, and more.',
             keywords: [
                 'start', 'guide', 'home', 'begin', 'starting', 'island', '/ob', 
-                'how to play', 'new', 'player', 'tutorial', 'basics', 'create', 
-                'go', 'money', 'making money', 'crates', 'keys', 'pwarp', 'chestshop', 
-                'ah', 'auction house', 'koth', 'envoys', 'party games', 'duels'
-            ] 
+                'how to play', 'new', 'player', 'tutorial', 'basics', 'create', 'go'
+            ],
+            headings: [
+                'Starting Your Island', 'Making Money', 'Crate Keys', 'Player Warps (pwarp)',
+                'ChestShops / PlayerShops', 'Auction House (AH)', 'KoTH (King of the Hill)',
+                'Envoys', 'Party Games', 'Duels'
+            ]
         },
         { 
             title: 'Server Rules', 
             page: 'rules.html', 
-            description: 'All server rules about chat, griefing, cheating, and allowed mods.',
+            description: 'All server rules for chat, gameplay, cheating, and punishments.',
             keywords: [
                 'rules', 'ban', 'grief', 'allowed', 'mods', 'cheating', 'hack', 
                 'punishments', 'mute', 'jail', 'kick', 'staff', 'respect', 'spam', 
                 'language', 'chat', 'exploits', 'bugs', 'xray', 'allowed mods', 
                 'unban', 'appeal', 'be respectful'
-            ] 
+            ],
+            headings: [
+                'General Rules', 'Chat Rules', 'Gameplay Rules', 'Hacking / Cheating',
+                'Allowed Modifications', 'Punishment System', 'Appeals'
+            ]
         },
         { 
             title: 'Vote Page', 
             page: 'vote.html', 
-            description: 'Find all vote links here to get free keys and rewards.',
+            description: 'Find all vote links here to get free keys and daily rewards.',
             keywords: [
                 'vote', 'voting', 'keys', 'links', 'crate', 'key', 'rewards', 
-                'free', 'daily', 'websites', 'vote links', 'vote keys', 
-                'common', 'epic', 'legendary', 'koth key'
-            ] 
+                'free', 'daily', 'websites', 'vote links', 'vote keys'
+            ],
+            headings: [
+                'Vote Links', 'Voting Rewards', 'Common Key', 'Epic Key', 'Legendary Key', 'VoteParty'
+            ]
         },
         { 
             title: 'Commands List', 
             page: 'commands.html', 
-            description: 'A complete list of all player commands available on the server.',
+            description: 'A complete list of all player commands (/ob, /ah, /warp, /tpa, etc).',
             keywords: [
-                'commands', 'cmd', '/ob', '/ah', '/pwarp', '/warp', '/sell', '/duel', '/pg', 
-                'list', 'all commands', '/msg', '/r', '/pay', '/bal', '/balance', '/spawn', 
-                '/sethome', '/home', '/delhome', '/tpa', '/tpaccept', '/tpadeny', 
-                'warps', 'player warp', '/is', 'island commands', 'party'
-            ] 
+                'commands', 'cmd', 'list', 'all commands', 'warps', 'player warp', 'island commands', 'party'
+            ],
+            headings: [
+                '/ob', '/is', '/ah', '/pwarp', '/warp', '/sell', '/duel', '/pg', 
+                '/msg', '/r', '/pay', '/bal', '/balance', '/spawn', 
+                '/sethome', '/home', '/delhome', '/tpa', '/tpaccept', '/tpadeny'
+            ]
         },
         { 
             title: 'Ranks & Perks', 
             page: 'ranks.html', 
-            description: 'See all the perks, kits, and benefits for each donation rank.',
+            description: 'See all perks, kits, and benefits for the Lunar, Solar, Eclipse, and Nebula ranks.',
             keywords: [
-                'ranks', 'perks', 'store', 'buy', 'nebula', 'eclipse', 'solar', 'lunar', 'lunisolar', 
-                'donate', 'donation', 'purchase', 'vip', 'kits', 'fly', 'benefits', 
-                'features', 'shop', 'buycraft', 'tebex', 'upgrade'
-            ] 
+                'ranks', 'perks', 'store', 'buy', 'donate', 'donation', 'purchase', 'vip', 
+                'benefits', 'features', 'shop', 'buycraft', 'tebex', 'upgrade'
+            ],
+            headings: [
+                'Nebula Rank', 'Eclipse Rank', 'Solar Rank', 'Lunar Rank', 'Lunisolar Rank',
+                'Perk List', 'Available Kits', 'Store Link'
+            ]
         },
         { 
             title: 'Economy & Shop', 
             page: 'economy.html', 
-            description: 'Learn how to make money, use the auction house, and create chest shops.',
+            description: 'Learn how to make money, use /sell, the auction house, and create chest shops.',
             keywords: [
                 'economy', 'money', 'shop', 'sell', 'buy', 'ah', 'auction', 'chestshop', 
                 'balance', 'bal', 'eco', 'making money', 'earn', 'how to sell', 
-                'how to buy', 'player shop', 'admin shop', '/sell', 'auction house', 
-                'pwarp', 'market', 'price', 'pricing'
-            ] 
+                'how to buy', 'player shop', 'admin shop', 'market', 'price', 'pricing'
+            ],
+            headings: [
+                'How to make money', '/sell command', 'Auction House (AH)', 'ChestShops',
+                'Server Shop', '/warp shop', '/balance', '/pay'
+            ]
         },
         { 
             title: 'Oneblock Phases', 
             page: 'phases.html', 
-            description: 'A list of all OneBlock island phases and the biomes you will unlock.',
+            description: 'A list of all OneBlock island phases, levels, and biomes you will unlock.',
             keywords: [
-                'phases', 'oneblock', 'biomes', 'plains', 'jungle', 'desert', 'deep dark', 
-                'island phases', 'levels', 'progress', 'blocks', 'list of phases', 
-                'ocean', 'swamp', 'nether', 'end', 'ice', 'mushroom', 'dungeon', 
-                'stronghold', 'forest', 'cave', 'winter'
-            ] 
+                'phases', 'oneblock', 'biomes', 'levels', 'progress', 'blocks', 
+                'list of phases', 'island phases'
+            ],
+            headings: [
+                'Phase 1: Plains', 'Phase 2: Forest', 'Phase 3: Jungle', 'Phase 4: Swamp',
+                'Phase 5: Desert', 'Phase 6: Ocean', 'Phase 7: Deep Dark', 'Phase 8: Nether', 'Phase 9: The End'
+            ]
         }
     ];
 
@@ -104,7 +123,10 @@ document.addEventListener('DOMContentLoaded', () => {
         const matches = searchData.filter(item => {
             const titleMatch = item.title.toLowerCase().includes(query);
             const keywordMatch = item.keywords.some(k => k.toLowerCase().includes(query));
-            return titleMatch || keywordMatch;
+            // *** NEW: Check if the query matches any headings ***
+            const headingMatch = item.headings.some(h => h.toLowerCase().includes(query));
+            
+            return titleMatch || keywordMatch || headingMatch;
         });
 
         if (matches.length > 0) {
@@ -114,12 +136,11 @@ document.addEventListener('DOMContentLoaded', () => {
                 item.dataset.page = match.page; // Store the page URL
                 item.dataset.index = index;     // Store the index for keyboard nav
 
-                // *** NEW: Create the inner HTML with title and description ***
+                // Create the inner HTML with title and description
                 item.innerHTML = `
                     <div class="suggestion-title">${match.title}</div>
                     <div class="suggestion-desc">${match.description}</div>
                 `;
-                // *** END OF NEW PART ***
 
                 // Click to go to page
                 item.addEventListener('click', () => {
