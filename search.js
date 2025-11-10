@@ -3,11 +3,12 @@
 document.addEventListener('DOMContentLoaded', () => {
 
     // This is our "database" of all searchable pages.
-    // Add more keywords to any page to improve the search.
+    // I've added a "description" field to each item.
     const searchData = [
         { 
             title: 'Getting Started', 
             page: 'index.html', 
+            description: 'The main guide for new players. Covers islands, money, crates, and more.',
             keywords: [
                 'start', 'guide', 'home', 'begin', 'starting', 'island', '/ob', 
                 'how to play', 'new', 'player', 'tutorial', 'basics', 'create', 
@@ -18,6 +19,7 @@ document.addEventListener('DOMContentLoaded', () => {
         { 
             title: 'Server Rules', 
             page: 'rules.html', 
+            description: 'All server rules about chat, griefing, cheating, and allowed mods.',
             keywords: [
                 'rules', 'ban', 'grief', 'allowed', 'mods', 'cheating', 'hack', 
                 'punishments', 'mute', 'jail', 'kick', 'staff', 'respect', 'spam', 
@@ -28,6 +30,7 @@ document.addEventListener('DOMContentLoaded', () => {
         { 
             title: 'Vote Page', 
             page: 'vote.html', 
+            description: 'Find all vote links here to get free keys and rewards.',
             keywords: [
                 'vote', 'voting', 'keys', 'links', 'crate', 'key', 'rewards', 
                 'free', 'daily', 'websites', 'vote links', 'vote keys', 
@@ -37,6 +40,7 @@ document.addEventListener('DOMContentLoaded', () => {
         { 
             title: 'Commands List', 
             page: 'commands.html', 
+            description: 'A complete list of all player commands available on the server.',
             keywords: [
                 'commands', 'cmd', '/ob', '/ah', '/pwarp', '/warp', '/sell', '/duel', '/pg', 
                 'list', 'all commands', '/msg', '/r', '/pay', '/bal', '/balance', '/spawn', 
@@ -47,6 +51,7 @@ document.addEventListener('DOMContentLoaded', () => {
         { 
             title: 'Ranks & Perks', 
             page: 'ranks.html', 
+            description: 'See all the perks, kits, and benefits for each donation rank.',
             keywords: [
                 'ranks', 'perks', 'store', 'buy', 'nebula', 'eclipse', 'solar', 'lunar', 'lunisolar', 
                 'donate', 'donation', 'purchase', 'vip', 'kits', 'fly', 'benefits', 
@@ -56,6 +61,7 @@ document.addEventListener('DOMContentLoaded', () => {
         { 
             title: 'Economy & Shop', 
             page: 'economy.html', 
+            description: 'Learn how to make money, use the auction house, and create chest shops.',
             keywords: [
                 'economy', 'money', 'shop', 'sell', 'buy', 'ah', 'auction', 'chestshop', 
                 'balance', 'bal', 'eco', 'making money', 'earn', 'how to sell', 
@@ -66,6 +72,7 @@ document.addEventListener('DOMContentLoaded', () => {
         { 
             title: 'Oneblock Phases', 
             page: 'phases.html', 
+            description: 'A list of all OneBlock island phases and the biomes you will unlock.',
             keywords: [
                 'phases', 'oneblock', 'biomes', 'plains', 'jungle', 'desert', 'deep dark', 
                 'island phases', 'levels', 'progress', 'blocks', 'list of phases', 
@@ -104,9 +111,15 @@ document.addEventListener('DOMContentLoaded', () => {
             matches.forEach((match, index) => {
                 const item = document.createElement('div');
                 item.classList.add('suggestion-item');
-                item.textContent = match.title;
                 item.dataset.page = match.page; // Store the page URL
                 item.dataset.index = index;     // Store the index for keyboard nav
+
+                // *** NEW: Create the inner HTML with title and description ***
+                item.innerHTML = `
+                    <div class="suggestion-title">${match.title}</div>
+                    <div class="suggestion-desc">${match.description}</div>
+                `;
+                // *** END OF NEW PART ***
 
                 // Click to go to page
                 item.addEventListener('click', () => {
