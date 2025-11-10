@@ -8,37 +8,70 @@ document.addEventListener('DOMContentLoaded', () => {
         { 
             title: 'Getting Started', 
             page: 'index.html', 
-            keywords: ['start', 'guide', 'home', 'begin', 'starting', 'island', '/ob'] 
+            keywords: [
+                'start', 'guide', 'home', 'begin', 'starting', 'island', '/ob', 
+                'how to play', 'new', 'player', 'tutorial', 'basics', 'create', 
+                'go', 'money', 'making money', 'crates', 'keys', 'pwarp', 'chestshop', 
+                'ah', 'auction house', 'koth', 'envoys', 'party games', 'duels'
+            ] 
         },
         { 
             title: 'Server Rules', 
             page: 'rules.html', 
-            keywords: ['rules', 'ban', 'grief', 'allowed', 'mods', 'cheating', 'hack'] 
+            keywords: [
+                'rules', 'ban', 'grief', 'allowed', 'mods', 'cheating', 'hack', 
+                'punishments', 'mute', 'jail', 'kick', 'staff', 'respect', 'spam', 
+                'language', 'chat', 'exploits', 'bugs', 'xray', 'allowed mods', 
+                'unban', 'appeal', 'be respectful'
+            ] 
         },
         { 
             title: 'Vote Page', 
             page: 'vote.html', 
-            keywords: ['vote', 'voting', 'keys', 'links', 'crate', 'key'] 
+            keywords: [
+                'vote', 'voting', 'keys', 'links', 'crate', 'key', 'rewards', 
+                'free', 'daily', 'websites', 'vote links', 'vote keys', 
+                'common', 'epic', 'legendary', 'koth key'
+            ] 
         },
         { 
             title: 'Commands List', 
             page: 'commands.html', 
-            keywords: ['commands', 'cmd', '/ob', '/ah', '/pwarp', '/warp', '/sell', '/duel', '/pg'] 
+            keywords: [
+                'commands', 'cmd', '/ob', '/ah', '/pwarp', '/warp', '/sell', '/duel', '/pg', 
+                'list', 'all commands', '/msg', '/r', '/pay', '/bal', '/balance', '/spawn', 
+                '/sethome', '/home', '/delhome', '/tpa', '/tpaccept', '/tpadeny', 
+                'warps', 'player warp', '/is', 'island commands', 'party'
+            ] 
         },
         { 
             title: 'Ranks & Perks', 
             page: 'ranks.html', 
-            keywords: ['ranks', 'perks', 'store', 'buy', 'nebula', 'eclipse', 'solar', 'lunar', 'lunisolar'] 
+            keywords: [
+                'ranks', 'perks', 'store', 'buy', 'nebula', 'eclipse', 'solar', 'lunar', 'lunisolar', 
+                'donate', 'donation', 'purchase', 'vip', 'kits', 'fly', 'benefits', 
+                'features', 'shop', 'buycraft', 'tebex', 'upgrade'
+            ] 
         },
         { 
             title: 'Economy & Shop', 
             page: 'economy.html', 
-            keywords: ['economy', 'money', 'shop', 'sell', 'buy', 'ah', 'auction', 'chestshop'] 
+            keywords: [
+                'economy', 'money', 'shop', 'sell', 'buy', 'ah', 'auction', 'chestshop', 
+                'balance', 'bal', 'eco', 'making money', 'earn', 'how to sell', 
+                'how to buy', 'player shop', 'admin shop', '/sell', 'auction house', 
+                'pwarp', 'market', 'price', 'pricing'
+            ] 
         },
         { 
             title: 'Oneblock Phases', 
             page: 'phases.html', 
-            keywords: ['phases', 'oneblock', 'biomes', 'plains', 'jungle', 'desert', 'deep dark'] 
+            keywords: [
+                'phases', 'oneblock', 'biomes', 'plains', 'jungle', 'desert', 'deep dark', 
+                'island phases', 'levels', 'progress', 'blocks', 'list of phases', 
+                'ocean', 'swamp', 'nether', 'end', 'ice', 'mushroom', 'dungeon', 
+                'stronghold', 'forest', 'cave', 'winter'
+            ] 
         }
     ];
 
