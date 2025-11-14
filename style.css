@@ -27,14 +27,19 @@
 
 body {
     font-family: 'Poppins', sans-serif;
-    background-color: var(--color-bg);
-    /* This creates the blend from midnight to dark andesite */
-    background-image: linear-gradient(180deg, #0a0f1a 0%, #1A1F2A 100%);
-    background-attachment: fixed;
-    background-size: 100% 100vh;
     color: var(--color-text);
     line-height: 1.6;
     overflow-wrap: break-word; /* Prevents long words from breaking layout */
+
+    /* --- NEW BACKGROUND STYLES --- */
+    background-color: var(--color-bg); /* Base background color */
+    background-image:
+        linear-gradient(180deg, rgba(10, 15, 26, 0.9) 0%, rgba(26, 31, 42, 0.95) 100%), /* Dark gradient overlay */
+        url('https://i.ibb.co/0VnKdTGL/this-is-what-happens-when-you-decide-to-turn-the-night-sky-v0-72fevuip8w981.webp'); /* Your image */
+    background-attachment: fixed;
+    background-size: cover, cover; /* Make both cover the area */
+    background-position: center top, center bottom; /* Adjust image position */
+    background-blend-mode: overlay, normal; /* Blend the gradient and the image */
 }
 
 .container {
@@ -116,7 +121,16 @@ code {
     font-size: 1.8rem;
     font-weight: 700;
     color: var(--color-text);
+    display: flex; /* Allow flex properties for image alignment */
+    align-items: center;
 }
+
+/* New: Logo image specific style */
+.flyer-logo-img {
+    max-height: 50px; /* Adjust as needed */
+    width: auto;
+}
+
 
 .search-bar {
     display: flex;
@@ -518,6 +532,10 @@ footer {
         align-items: flex-start;
         gap: 10px; /* Space between logo and search */
     }
+    
+    .logo {
+        margin-bottom: 10px; /* Add some space below the logo */
+    }
 
     .search-wrapper {
         width: 100%; /* Make search bar full-width */
@@ -567,43 +585,4 @@ footer {
         width: 100%;
         overflow-x: auto;
     }
-}
-/* --- New Search Suggestion Styles --- */
-
-/* This is the main box for each suggestion */
-.suggestion-item {
-    padding: 10px 15px;
-    cursor: pointer;
-    transition: background-color 0.2s;
-    border-bottom: 1px solid #333; /* Faint line between items */
-    line-height: 1.4;
-}
-
-/* Remove border from the last item */
-.suggestion-item:last-child {
-    border-bottom: none;
-}
-
-/* This is the page title (e.g., "Vote Page") */
-.suggestion-title {
-    font-weight: 600;
-    font-size: 1.05em;
-    color: #f0f0f0; /* Light text */
-}
-
-/* This is the new description text */
-.suggestion-desc {
-    font-size: 0.9em;
-    color: #aaa; /* Grayer, smaller text */
-    padding-left: 2px; /* Small indent */
-}
-
-/* This is the highlight for keyboard navigation */
-.suggestion-item.active {
-    background-color: #383838; /* Dark highlight */
-}
-
-/* Hover effect */
-.suggestion-item:hover {
-     background-color: #303030;
 }
