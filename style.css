@@ -1,40 +1,68 @@
-/* --- CSS Variables (Your Color Palette) --- */
+/* =========================================
+--- 1. CSS VARIABLES & THEME CONFIG ---
+=========================================
+*/
 :root {
-    /* New Palette:
-      - Midnight: Deep, dark blues/indigos
-      - Create Mod: Brassy gold, dark grey-blue
-    */
-    --color-bg: #0a0f1a;          /* Deep Midnight blue */
-    --color-bg-light: #161B22;    /* Create Mod "Andesite" grey */
-    --color-primary: #E0B04F;     /* Create Mod "Brass" gold */
-    --color-secondary: #4A3C2B;   /* Dark supporting brown/brass */
-    --color-text: #E6EDF3;        /* Light gray */
-    --color-text-dim: #6E99D0;    /* Create Mod "Schematic" blue */
-
-    --border-radius-main: 16px; /* Main "round" radius for containers */
-    --border-radius-small: 10px; /* Smaller radius for inner elements */
-    --border-radius-pill: 50px; /* Fully rounded "pill" */
-    --border-color: #30363D; /* Subtle border color */
+    /* --- Palette: Midnight & Brass --- */
+    --color-bg: #0a0f1a;          /* Deepest Midnight */
+    --color-bg-transparent: rgba(10, 15, 26, 0.85); /* For Glassmorphism */
+    --color-bg-light: #161B22;    /* Create Mod Andesite */
+    --color-bg-light-transparent: rgba(22, 27, 34, 0.75); /* Frosted Sidebar */
+    
+    --color-primary: #E0B04F;     /* Brass Gold */
+    --color-primary-glow: rgba(224, 176, 79, 0.4); /* Gold Glow effect */
+    
+    --color-secondary: #4A3C2B;   /* Dark Brass/Brown */
+    --color-text: #E6EDF3;        /* Bright White-Grey */
+    --color-text-dim: #8b949e;    /* Soft Grey */
+    
+    --border-radius-main: 16px; 
+    --border-radius-small: 8px; 
+    --border-radius-pill: 50px; 
+    
+    --border-color: #30363D; 
     --header-height: 70px;
+    
+    /* --- Transitions --- */
+    --ease-bounce: cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Bouncy animation */
 }
 
-/* --- Global Reset & Styles --- */
+/* =========================================
+--- 2. GLOBAL STYLES & SCROLLBAR ---
+=========================================
+*/
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
+/* Custom Scrollbar for that "Premium" feel */
+::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+}
+::-webkit-scrollbar-track {
+    background: var(--color-bg); 
+}
+::-webkit-scrollbar-thumb {
+    background: #30363D; 
+    border-radius: 5px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: var(--color-primary); 
+}
+
 body {
     font-family: 'Poppins', sans-serif;
     background-color: var(--color-bg);
-    /* This creates the blend from midnight to dark andesite */
-    background-image: linear-gradient(180deg, #0a0f1a 0%, #1A1F2A 100%);
+    /* Deep subtle gradient background */
+    background-image: radial-gradient(circle at 50% 0%, #1c2333 0%, #0a0f1a 80%);
     background-attachment: fixed;
-    background-size: 100% 100vh;
+    background-size: cover;
     color: var(--color-text);
     line-height: 1.6;
-    overflow-wrap: break-word; /* Prevents long words from breaking layout */
+    overflow-wrap: break-word;
 }
 
 .container {
@@ -46,63 +74,75 @@ body {
 a {
     color: var(--color-primary);
     text-decoration: none;
-    transition: color 0.3s ease;
+    transition: all 0.3s ease;
+    position: relative;
 }
 a:hover {
-    color: #F5D07A; /* Lighter gold */
+    color: #ffe082;
+    text-shadow: 0 0 10px var(--color-primary-glow);
 }
 
+/* =========================================
+--- 3. TYPOGRAPHY ---
+=========================================
+*/
 h1, h2, h3, h4 {
     color: var(--color-text);
+    margin-top: 20px;
     margin-bottom: 10px;
-    margin-top: 15px;
+    font-weight: 700;
 }
 
-h1 { font-size: 2.2rem; }
+/* Fancy Metallic Gradient Text for H1 */
+h1 { 
+    font-size: 2.5rem; 
+    background: linear-gradient(to right, #E0B04F, #F5D07A, #E0B04F);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    display: inline-block;
+}
+
 h2 { 
     font-size: 1.8rem; 
     border-bottom: 1px solid var(--border-color); 
-    padding-bottom: 5px; 
-    margin-top: 30px;
+    padding-bottom: 10px; 
+    margin-top: 35px;
 }
+
 h3 { font-size: 1.4rem; color: var(--color-primary); }
-h4 { font-size: 1.1rem; }
 
 p {
     color: var(--color-text-dim);
-    margin-bottom: 15px;
+    margin-bottom: 18px;
+    font-size: 1.05rem;
 }
 
-ul {
-    padding-left: 20px;
-    margin-bottom: 15px;
-}
-li {
-    color: var(--color-text-dim);
-    margin-bottom: 5px;
-}
-
-/* Style for commands like /ob create */
 code {
-    background-color: var(--color-bg);
+    background-color: rgba(0,0,0,0.3);
     color: var(--color-primary);
-    padding: 3px 8px;
-    border-radius: 8px; /* Rounded code blocks */
-    font-family: monospace;
-    font-size: 0.95rem;
+    padding: 4px 8px;
+    border-radius: 6px;
+    font-family: 'JetBrains Mono', monospace; /* Or default monospace */
+    font-size: 0.9rem;
     border: 1px solid var(--border-color);
 }
 
-
-/* --- Wiki Header --- */
+/* =========================================
+--- 4. HEADER (GLASSMORPHISM) ---
+=========================================
+*/
 .wiki-header {
-    background-color: var(--color-bg-light);
+    background-color: var(--color-bg-light-transparent);
+    /* The Blur Effect */
+    backdrop-filter: blur(12px); 
+    -webkit-backdrop-filter: blur(12px);
     border-bottom: 1px solid var(--border-color);
-    padding: 0 20px;
     height: var(--header-height);
     position: sticky;
     top: 0;
     z-index: 100;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.2);
 }
 
 .header-content {
@@ -110,501 +150,300 @@ code {
     justify-content: space-between;
     align-items: center;
     height: 100%;
+    padding: 0 20px;
 }
 
 .logo {
     font-size: 1.8rem;
-    font-weight: 700;
+    font-weight: 800;
+    letter-spacing: -0.5px;
     color: var(--color-text);
+    text-transform: uppercase;
 }
 
 .search-bar {
     display: flex;
-    background-color: var(--color-bg);
+    background-color: rgba(0, 0, 0, 0.2);
     border: 1px solid var(--border-color);
-    border-radius: var(--border-radius-pill); /* Rounded search bar */
-    overflow: hidden;
+    border-radius: var(--border-radius-pill);
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.search-bar:focus-within {
+    border-color: var(--color-primary);
+    box-shadow: 0 0 15px var(--color-primary-glow);
 }
 
 .search-bar input {
     background: none;
     border: none;
-    padding: 10px 15px;
+    padding: 10px 20px;
     color: var(--color-text);
-    font-family: 'Poppins', sans-serif;
+    outline: none;
     width: 250px;
 }
-.search-bar input::placeholder { color: var(--color-text-dim); }
 
 .search-bar button {
     background-color: var(--color-primary);
     border: none;
     color: var(--color-bg);
-    padding: 0 15px;
+    padding: 0 20px;
+    border-radius: 0 var(--border-radius-pill) var(--border-radius-pill) 0;
     cursor: pointer;
-    font-size: 1rem;
-    transition: background-color 0.3s ease;
+    font-weight: 700;
+    transition: background-color 0.3s;
 }
-.search-bar button:hover { background-color: #F5D07A; } /* Lighter gold */
+.search-bar button:hover { background-color: #fff; }
 
-/* --- Wiki Layout (Sidebar + Main) --- */
+/* =========================================
+--- 5. LAYOUT & SIDEBAR ---
+=========================================
+*/
 .wiki-layout {
     display: grid;
-    /* This creates the 2-column layout */
     grid-template-columns: 260px 1fr;
-    gap: 25px;
-    margin-top: 25px;
+    gap: 30px;
+    margin-top: 30px;
     align-items: flex-start;
 }
 
-/* --- Sidebar Navigation --- */
 .sidebar {
-    background-color: var(--color-bg-light);
+    background-color: var(--color-bg-light-transparent);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
     border: 1px solid var(--border-color);
-    border-radius: var(--border-radius-main); /* Rounded sidebar */
-    padding: 20px;
-    /* This makes the sidebar stay in place when you scroll */
+    border-radius: var(--border-radius-main);
+    padding: 25px;
     position: sticky;
     top: calc(var(--header-height) + 25px); 
 }
 
-.sidebar-nav h3 {
-    border-bottom: 1px solid var(--border-color);
-    padding-bottom: 10px;
-    margin-top: 0;
-}
-
 .sidebar-nav ul {
     list-style: none;
-    padding: 0;
     margin-top: 15px;
+    padding: 0;
 }
 
 .sidebar-nav a {
     display: flex;
     align-items: center;
     color: var(--color-text-dim);
-    padding: 10px 15px;
-    border-radius: var(--border-radius-small); /* Rounded nav links */
+    padding: 12px 15px;
+    border-radius: var(--border-radius-small);
     font-weight: 600;
-    transition: background-color 0.3s ease, color 0.3s ease;
+    margin-bottom: 5px;
+    border-left: 3px solid transparent;
+    transition: all 0.3s var(--ease-bounce);
 }
 
-.sidebar-nav a i {
-    margin-right: 12px;
-    width: 20px;
-    text-align: center;
-}
+.sidebar-nav a i { margin-right: 12px; width: 20px; text-align: center; }
 
+/* Sidebar Hover Effects */
 .sidebar-nav a:hover {
-    background-color: var(--color-secondary);
+    background-color: rgba(255,255,255,0.05);
     color: var(--color-text);
+    padding-left: 20px; /* Slide right slightly */
+    border-left-color: var(--color-text-dim);
 }
 
+/* Sidebar Active State */
 .sidebar-nav a.active {
-    background-color: var(--color-primary);
-    color: var(--color-bg);
+    background: linear-gradient(90deg, rgba(224, 176, 79, 0.15) 0%, transparent 100%);
+    color: var(--color-primary);
+    border-left-color: var(--color-primary);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
 }
 
-/* --- Main Wiki Content --- */
+/* =========================================
+--- 6. MAIN CONTENT AREA ---
+=========================================
+*/
 .main-content {
     background-color: var(--color-bg-light);
     border: 1px solid var(--border-color);
-    border-radius: var(--border-radius-main); /* Rounded article area */
-    padding: 30px 40px;
-    min-height: 80vh; /* Ensures it feels substantial */
+    border-radius: var(--border-radius-main);
+    padding: 40px;
+    min-height: 80vh;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3); /* Deep shadow */
 }
 
-.article-intro {
-    font-size: 1.1rem;
-    color: var(--color-text-dim);
-}
-
-/* Scroll-margin-top ensures section titles aren't hidden by the sticky header */
-section[id] {
-    scroll-margin-top: calc(var(--header-height) + 20px);
-}
-
-/* --- Table of Contents Box (Classic Wiki Feature) --- */
+/* TOC Box */
 .toc-box {
-    background-color: var(--color-bg);
+    background-color: rgba(10, 15, 26, 0.6);
     border: 1px solid var(--border-color);
-    border-radius: var(--border-radius-main); /* Rounded TOC */
+    border-radius: var(--border-radius-main);
     padding: 20px;
-    width: 300px;
+    width: 280px;
     float: right;
-    margin: 10px 0 20px 20px;
+    margin: 0 0 20px 25px;
+    box-shadow: inset 0 0 20px rgba(0,0,0,0.5);
 }
-.toc-box h4 {
-    margin: 0 0 10px 0;
-    border-bottom: 1px solid var(--border-color);
-    padding-bottom: 5px;
-}
-.toc-box ul {
-    list-style: disc;
-    padding-left: 20px;
-    margin-bottom: 0;
-}
-.toc-box li {
-    margin-bottom: 5px;
-}
-.toc-box a {
-    color: var(--color-text-dim);
-}
-.toc-box a:hover {
-    color: var(--color-primary);
-}
+.toc-box h4 { margin-top: 0; border-bottom: 1px solid var(--border-color); }
+.toc-box ul { padding-left: 20px; list-style: square; }
 
+/* =========================================
+--- 7. FANCY COMPONENTS (Cards, Tables) ---
+=========================================
+*/
 
-/* --- NEW: Vote Page Button Styles --- */
+/* Vote Buttons - Card Style */
 .vote-links {
     display: grid;
-    grid-template-columns: 1fr; /* 1 column grid */
-    gap: 15px;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Smart Grid */
+    gap: 20px;
     margin-top: 30px;
 }
 
 .vote-button {
     display: flex;
     flex-direction: column;
-    padding: 20px;
-    background-color: var(--color-secondary);
+    padding: 25px;
+    background: linear-gradient(145deg, #20252e, #161b22);
     border: 1px solid var(--border-color);
-    border-radius: var(--border-radius-small); /* Rounded buttons */
-    transition: background-color 0.3s ease, border-color 0.3s ease;
+    border-radius: var(--border-radius-main);
+    transition: all 0.4s var(--ease-bounce);
+    position: relative;
+    overflow: hidden;
 }
 
 .vote-button:hover {
-    background-color: var(--color-bg);
     border-color: var(--color-primary);
+    transform: translateY(-5px); /* Lift up */
+    box-shadow: 0 10px 25px var(--color-primary-glow);
 }
 
-.vote-button strong {
-    font-size: 1.2rem;
-    color: var(--color-text);
-}
+.vote-button strong { font-size: 1.3rem; color: var(--color-text); display: block; margin-bottom: 5px;}
 
-.vote-button span {
-    font-size: 0.9rem;
-    color: var(--color-text-dim);
-}
-
-
-/* --- Footer --- */
-footer {
-    text-align: center;
-    padding: 30px;
-    border-top: 1px solid var(--border-color);
-    color: var(--color-text-dim);
-    font-size: 0.9rem;
-    margin-top: 30px;
-}
-/* --- NEW STYLES FOR RULES PAGE --- */
-
-.wiki-article section {
-    margin-top: 20px;
-    padding-top: 10px;
-}
-
-/* Adds a sub-heading style for each rule */
-.wiki-article h3 {
-    font-size: 1.25rem;
-    color: var(--color-primary);
-    margin-top: 25px;
-    margin-bottom: 5px;
-}
-
-/* Adds an icon style for the main section headings */
-.wiki-article h2 i {
-    margin-right: 10px;
-    color: var(--color-primary);
-}
-
-/* Style for the final disclaimer box */
-.rule-disclaimer {
-    border-left: 4px solid var(--color-primary);
-    background-color: var(--color-bg);
-    padding: 15px 20px;
-    margin-top: 20px;
-    border-radius: 0 var(--border-radius-small) var(--border-radius-small) 0;
-}
-.rule-disclaimer strong {
-    color: var(--color-text);
-}
-/* --- NEW STYLES FOR COMMANDS PAGE --- */
-
+/* Tables */
 .command-table {
     width: 100%;
-    margin-top: 15px;
-    border-collapse: collapse;
+    border-collapse: separate; 
+    border-spacing: 0;
     border: 1px solid var(--border-color);
-    /* This combo makes the table rounded */
-    border-radius: var(--border-radius-small);
-    overflow: hidden; 
-}
-
-.command-table th,
-.command-table td {
-    padding: 12px 15px;
-    text-align: left;
-    border-bottom: 1px solid var(--border-color);
+    border-radius: var(--border-radius-main);
+    overflow: hidden;
+    margin-top: 20px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
 }
 
 .command-table th {
-    background-color: var(--color-secondary); /* Dark brass header */
-    color: var(--color-text);
-    font-size: 1.1rem;
+    background-color: var(--color-secondary);
+    color: #fff;
+    padding: 15px;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    letter-spacing: 1px;
 }
 
 .command-table td {
-    background-color: var(--color-bg);
-    color: var(--color-text-dim);
+    padding: 15px;
+    background-color: rgba(0,0,0,0.2);
+    border-bottom: 1px solid var(--border-color);
 }
+.command-table tr:last-child td { border-bottom: none; }
 
-/* Make the command column a bit wider */
-.command-table td:first-child {
-    width: 40%;
-}
+/* Rank Colors */
+.rank-nebula { color: #C9A7F8; text-shadow: 0 0 10px rgba(201, 167, 248, 0.4); }
+.rank-eclipse { color: #F8B400; text-shadow: 0 0 10px rgba(248, 180, 0, 0.4); }
+.rank-solar { color: #FFD700; text-shadow: 0 0 10px rgba(255, 215, 0, 0.4); }
+.rank-lunar { color: #AEC5FF; text-shadow: 0 0 10px rgba(174, 197, 255, 0.4); }
+.rank-lunisolar { color: var(--color-primary); font-weight: bold; text-shadow: 0 0 15px var(--color-primary); }
 
-/* Override default code styling to look good in a table */
-.command-table code {
-    background-color: var(--color-bg-light);
-    color: var(--color-primary);
-    font-size: 1rem;
-    padding: 4px 8px;
-}
-
-/* Remove bottom border from the last row in the table */
-.command-table tr:last-child td {
-    border-bottom: none;
-}
-/* --- NEW STYLES FOR RANKS PAGE --- */
-
-/* Style for the "Includes all perks from..." blockquote */
-.perk-inheritance {
-    border-left: 4px solid var(--border-color);
-    background-color: var(--color-bg);
-    padding: 10px 20px;
-    margin: -5px 0 15px 0;
-    border-radius: 0 var(--border-radius-small) var(--border-radius-small) 0;
-    font-style: italic;
-}
-.perk-inheritance strong {
-    color: var(--color-text);
-}
-
-/* Rank-specific subheadings (h3) */
-.wiki-article h3[id] {
-    font-size: 1.5rem;
-    display: flex;
-    align-items: center;
-    margin-top: 30px;
-    padding-bottom: 5px;
-    border-bottom: 1px dashed var(--border-color);
-}
-
-.wiki-article h3[id] i {
-    margin-right: 10px;
-    font-size: 1.2rem;
-}
-
-/* Rank-specific colors */
-.rank-nebula { color: #C9A7F8; }    /* Light Purple */
-.rank-eclipse { color: #F8B400; }   /* Gold/Orange */
-.rank-solar { color: #FFD700; }     /* Bright Yellow */
-.rank-lunar { color: #AEC5FF; }     /* Light Blue */
-.rank-lunisolar { color: var(--color-primary); } /* Main "Brass" gold */
-/* --- NEW STYLES FOR PHASES PAGE (LISTS) --- */
-
-.wiki-article ol {
-    list-style: decimal;
-    margin-left: 25px;
-}
-
-.wiki-article ol.phase-list li {
-    padding-left: 10px;
-    font-size: 1.1rem;
-    font-weight: 600;
-    color: var(--color-text-dim);
-    margin-bottom: 12px;
-}
-
-/* Makes the list numbers stand out */
-.wiki-article ol.phase-list li::marker {
-    color: var(--color-primary);
-    font-weight: 700;
-    font-size: 1.2rem;
-}
-/* --- NEW STYLES FOR SEARCH SUGGESTIONS --- */
-
-.search-wrapper {
-    /* This is critical for positioning the dropdown */
-    position: relative;
-}
-
+/* Search Suggestions */
+.search-wrapper { position: relative; width: 100%; }
 .search-suggestions {
-    /* Hides the box by default */
     display: none; 
-    
-    /* Positions it right under the search bar */
     position: absolute;
-    top: 100%;
-    left: 0;
-    right: 0;
-    
-    /* Styling to match the wiki theme */
+    top: 110%; left: 0; right: 0;
     background-color: var(--color-bg-light);
     border: 1px solid var(--border-color);
-    /* Rounded bottom corners */
-    border-radius: 0 0 var(--border-radius-main) var(--border-radius-main);
-    
-    /* Ensures it appears over other content */
+    border-radius: var(--border-radius-main);
     z-index: 1000;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
     max-height: 300px;
     overflow-y: auto;
 }
-
 .suggestion-item {
-    padding: 12px 15px;
-    color: var(--color-text-dim);
+    padding: 15px;
+    border-bottom: 1px solid #2a3038;
     cursor: pointer;
-    font-weight: 600;
-    transition: background-color 0.2s ease, color 0.2s ease;
 }
-
-/* Hover effect for mouse */
-.suggestion-item:hover {
+.suggestion-item:hover, .suggestion-item.active {
     background-color: var(--color-secondary);
-    color: var(--color-text);
 }
-
-/* Active effect for keyboard navigation */
-.suggestion-item.active {
-    background-color: var(--color-primary);
-    color: var(--color-bg);
-}
+.suggestion-title { color: #fff; font-weight: 600; display: block; }
+.suggestion-desc { font-size: 0.85rem; color: #888; }
 
 
-/*
-=========================================
---- RESPONSIVE (MOBILE) STYLES ---
+/* =========================================
+--- 8. MOBILE OPTIMIZATIONS ---
 =========================================
 */
-
 @media (max-width: 768px) {
+    
+    .container { padding: 0 15px; }
 
-    /* --- General Layout --- */
-    .container {
-        padding: 0 15px; /* Less horizontal padding */
-    }
-
+    /* Stack the grid */
     .wiki-layout {
-        /* This is the key: stack the columns */
-        grid-template-columns: 1fr; 
+        grid-template-columns: 1fr;
         gap: 20px;
-        margin-top: 20px;
+        margin-top: 15px;
     }
 
-    /* --- Header --- */
+    /* Better Mobile Header */
     .wiki-header {
-        height: auto; /* Allow header to grow */
-        padding-top: 10px;
-        padding-bottom: 10px;
-        /* It will remain sticky, but will be taller */
+        height: auto;
+        padding: 15px 0;
+        background-color: var(--color-bg-light); /* Solid color better for mobile performance */
     }
-
+    
     .header-content {
-        flex-direction: column; /* Stack logo and search */
-        align-items: flex-start;
-        gap: 10px; /* Space between logo and search */
+        flex-direction: column;
+        gap: 15px;
     }
+    
+    .search-bar { width: 100%; }
+    .search-bar input { width: 100%; }
 
-    .search-wrapper {
-        width: 100%; /* Make search bar full-width */
-    }
-
-    .search-bar {
-        width: 100%;
-    }
-
-    .search-bar input {
-        width: auto; /* Remove fixed width */
-        flex-grow: 1;  /* Allow input to fill space */
-    }
-
-    /* --- Sidebar --- */
+    /* Sidebar improvements for touch */
     .sidebar {
-        position: static; /* Un-stick the sidebar */
-        top: auto;
-        /* It will now appear at the top of the grid */
+        position: relative; /* Not sticky on mobile to save screen space */
+        top: 0;
+        padding: 15px;
+        margin-bottom: 10px;
+    }
+    
+    /* Bigger tap targets */
+    .sidebar-nav a {
+        padding: 15px; 
+        font-size: 1.1rem; /* Larger text for phones */
+        background-color: rgba(255,255,255,0.03); /* Slight bg to show it's clickable */
+        margin-bottom: 8px;
     }
 
-    /* --- Main Content --- */
     .main-content {
-        padding: 20px 15px; /* Reduce padding for small screens */
-        min-height: auto; /* Remove fixed min-height */
+        padding: 25px 20px;
     }
 
-    /* --- Table of Contents --- */
+    /* Reset TOC to be full width */
     .toc-box {
-        float: none; /* Disable float */
-        width: 100%; /* Make it full-width */
-        margin: 20px 0 20px 0; /* Adjust margins */
+        float: none;
+        width: 100%;
+        margin: 0 0 25px 0;
     }
 
-    /* --- Typography --- */
-    /* Slightly smaller headings for small screens */
-    h1 { font-size: 1.8rem; }
+    /* Typography Scaling */
+    h1 { font-size: 2rem; }
     h2 { font-size: 1.5rem; }
-    h3 { font-size: 1.25rem; }
-
-    /* --- Table Fix --- */
-    /* This makes your command table scroll 
-       horizontally if it's too wide,
-       instead of breaking the page layout. */
+    
+    /* Horizontal Scroll for Code/Tables */
     .command-table {
         display: block;
         width: 100%;
-        overflow-x: auto;
+        overflow-x: auto; /* Allows thumb scrolling */
+        white-space: nowrap; /* Keeps rows on one line */
     }
+    
+    /* Mobile Buttons */
+    .vote-links { grid-template-columns: 1fr; }
 }
-/* --- New Search Suggestion Styles --- */
-
-/* This is the main box for each suggestion */
-.suggestion-item {
-    padding: 10px 15px;
-    cursor: pointer;
-    transition: background-color 0.2s;
-    border-bottom: 1px solid #333; /* Faint line between items */
-    line-height: 1.4;
-}
-
-/* Remove border from the last item */
-.suggestion-item:last-child {
-    border-bottom: none;
-}
-
-/* This is the page title (e.g., "Vote Page") */
-.suggestion-title {
-    font-weight: 600;
-    font-size: 1.05em;
-    color: #f0f0f0; /* Light text */
-}
-
-/* This is the new description text */
-.suggestion-desc {
-    font-size: 0.9em;
-    color: #aaa; /* Grayer, smaller text */
-    padding-left: 2px; /* Small indent */
-}
-
-/* This is the highlight for keyboard navigation */
-.suggestion-item.active {
-    background-color: #383838; /* Dark highlight */
-}
-
-/* Hover effect */
-.suggestion-item:hover {
-     background-color: #303030;
-}
-
